@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"Backend-Challenge/models"
+	"Backend-Challenge/responder"
 	"Backend-Challenge/services"
 	"encoding/json"
 	"net/http"
@@ -32,7 +33,7 @@ func ListArticlesHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	jsonResponse(w, articles, http.StatusOK)
+	responder.JSON(w, r, articles, http.StatusOK)
 }
 
 func GetArticleHandler(w http.ResponseWriter, r *http.Request) {
@@ -50,7 +51,7 @@ func GetArticleHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	jsonResponse(w, article, http.StatusOK)
+	responder.JSON(w, r, article, http.StatusOK)
 }
 
 func AddArticleHandler(w http.ResponseWriter, r *http.Request) {
@@ -68,7 +69,7 @@ func AddArticleHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	jsonResponse(w, article, http.StatusCreated)
+	responder.JSON(w, r, article, http.StatusCreated)
 }
 
 func UpdateArticleHandler(w http.ResponseWriter, r *http.Request) {
@@ -86,7 +87,7 @@ func UpdateArticleHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	jsonResponse(w, article, http.StatusOK)
+	responder.JSON(w, r, article, http.StatusOK)
 }
 
 func DeleteArticleHandler(w http.ResponseWriter, r *http.Request) {
