@@ -135,7 +135,7 @@
         "summary": "Excluir um artigo",
         "description": "Exclui um artigo existente",
         "responses": {
-          "200": {
+          "204": {
             "description": "Artigo excluído com sucesso"
           },
           "404": {
@@ -153,16 +153,37 @@
       "ArticleInput": {
         "type": "object",
         "properties": {
+          "featured": {
+            "type": "boolean",
+            "description": "Indica se o artigo é destaque"
+          },
           "title": {
             "type": "string",
             "description": "Título do artigo"
           },
-          "content": {
+          "url": {
             "type": "string",
-            "description": "Conteúdo do artigo"
+            "description": "URL do artigo"
+          },
+          "imageurl": {
+            "type": "string",
+            "description": "URL da imagem do artigo"
+          },
+          "newssite": {
+            "type": "string",
+            "description": "Nome do site de notícias"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Resumo do artigo"
+          },
+          "publishedat": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de publicação do artigo (formato ISO 8601)"
           }
         },
-        "required": ["title", "content"]
+        "required": ["title", "url", "imageurl", "newssite", "summary", "publishedat"]
       },
       "ArticleOutput": {
         "type": "object",
@@ -172,13 +193,34 @@
             "format": "int64",
             "description": "ID do artigo"
           },
+          "featured": {
+            "type": "boolean",
+            "description": "Indica se o artigo é destaque"
+          },
           "title": {
             "type": "string",
             "description": "Título do artigo"
           },
-          "content": {
+          "url": {
             "type": "string",
-            "description": "Conteúdo do artigo"
+            "description": "URL do artigo"
+          },
+          "imageurl": {
+            "type": "string",
+            "description": "URL da imagem do artigo"
+          },
+          "newssite": {
+            "type": "string",
+            "description": "Nome do site de notícias"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Resumo do artigo"
+          },
+          "publishedat": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de publicação do artigo (formato ISO 8601)"
           }
         }
       }

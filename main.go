@@ -22,13 +22,10 @@ func main() {
 
 	models.CreateArticleTable()
 
-	// Chamar a função SeedArticles para armazenar os dados dos artigos
 	script.SeedArticles()
 
-	// Configurar o CRON para executar diariamente às 9h
 	cron := cron.New()
 	cron.AddFunc("0 9 * * *", func() {
-		// Chamar a função SeedArticles para atualizar os dados dos artigos diariamente
 		script.SeedArticles()
 	})
 	cron.Start()
