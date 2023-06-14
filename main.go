@@ -23,11 +23,12 @@ func main() {
 	models.CreateArticleTable()
 
 	script.SeedArticles()
-
+	//cron
 	cron := cron.New()
 	cron.AddFunc("0 9 * * *", func() {
 		script.SeedArticles()
 	})
+
 	cron.Start()
 	defer cron.Stop()
 
